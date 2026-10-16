@@ -14,6 +14,7 @@
   <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-necess%C3%A1rio-D97757">
   <img alt="Sem servidor" src="https://img.shields.io/badge/servidor-nenhum-19A0CF">
   <img alt="Feito para Mac" src="https://img.shields.io/badge/feito%20para-Mac-555">
+  <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/badge/licen%C3%A7a-MIT-555"></a>
   <a href="https://github.com/daviaieta/jarvis/issues"><img alt="Dúvidas e problemas: Issues" src="https://img.shields.io/badge/d%C3%BAvidas-issues-555"></a>
 </p>
 
@@ -217,5 +218,7 @@ Peça ao próprio Claude: *"desinstala o Jarvis: os plugins, as skills avulsas e
 ## Créditos
 
 O Jarvis junta trabalho aberto de muita gente: o [Agency Agents](https://github.com/msitarzewski/agency-agents), o [instagram-skills](https://github.com/sergebulaev/instagram-skills), o [claude-video](https://github.com/bradautomates/claude-video), o [edit-labs-ai](https://github.com/paullabs/edit-labs-ai), o [HyperFrames](https://github.com/heygen-com/hyperframes), o [compound-engineering](https://github.com/EveryInc/compound-engineering-plugin), as [skills do Higgsfield](https://github.com/higgsfield-ai/skills), as [do Replicate](https://github.com/replicate/skills) e as [da Vercel](https://github.com/vercel-labs/skills). Claude e Obsidian são marcas dos seus donos.
+
+**Licença:** o prompt e os textos deste repositório são MIT (veja o [LICENSE](LICENSE)): pode usar, adaptar e redistribuir, mantendo o aviso de copyright. As marcas que aparecem nas imagens (Claude, Obsidian) são dos seus donos, e o que o Jarvis instala segue a licença de cada repositório, listada em [o que vem instalado](#o-que-vem-instalado).
 
 Conseguiu montar o seu? Me marca no Instagram: [@daviaietaa](https://www.instagram.com/daviaietaa/).

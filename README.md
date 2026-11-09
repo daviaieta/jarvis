@@ -33,6 +33,29 @@
 > [!TIP]
 > **Novo (09/nov/2026):** o [**pacote completo**](pacote/README.md), com todas as skills e plugins que eu uso (51 skills e 11 plugins no padrão, mais um grupo de segurança à parte, baixados dos repositórios originais), e o [**tutorial do segundo cérebro**](docs/segundo-cerebro.md), o passo a passo da live "Inteligência Artificial na prática".
 
+<details>
+<summary><b>🇬🇧 English summary</b></summary>
+
+<br>
+
+**Jarvis turns an Obsidian vault into a second brain for Claude Code.** Claude reads your notes before it answers, and calls 1 to 3 of 282 specialist agents per task. It is an open prompt: there is no server, and nothing is installed without your OK.
+
+1. Install [Obsidian](https://obsidian.md) and create a new vault (any empty folder).
+2. Open Claude Code in that folder (the *Code* tab of the Claude desktop app, or `claude` in the terminal).
+3. Paste this into Claude and send:
+
+```
+Instala o Jarvis: https://github.com/daviaieta/jarvis
+```
+
+Claude then runs four phases, stopping for your approval, installs the plugins and skills, and interviews you one question at a time.
+
+**New (Nov 9, 2026):** a [full skill pack](pacote/README.md) with every skill and plugin I use, and a [second-brain tutorial](docs/segundo-cerebro.md), both in Portuguese.
+
+**Heads up:** Jarvis talks to you in Portuguese, and the rest of this README is in Portuguese. It was tested on macOS only. MIT licensed. An independent personal project, not affiliated with Anthropic or Obsidian.
+
+</details>
+
 > [!IMPORTANT]
 > O endereço oficial é **github.com/daviaieta/jarvis**. É um projeto pessoal e independente do Davi Aieta, sem vínculo com a Anthropic (Claude) nem com o Obsidian. Tudo o que ele instala vem dos repositórios originais, [listados aqui](#o-que-vem-instalado), e só com o seu ok.
 

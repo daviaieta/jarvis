@@ -1,0 +1,22 @@
+# grupo	plugin	marketplace (repositório)	nome_do_marketplace	licença	precisa
+claude	skill-creator	anthropics/claude-plugins-official	claude-plugins-official	Apache-2.0	nada
+claude	playwright	anthropics/claude-plugins-official	claude-plugins-official	Apache-2.0	Node
+claude	context7	anthropics/claude-plugins-official	claude-plugins-official	Apache-2.0	nada
+claude	github	anthropics/claude-plugins-official	claude-plugins-official	Apache-2.0	conta no GitHub
+claude	vercel	anthropics/claude-plugins-official	claude-plugins-official	Apache-2.0	conta na Vercel
+claude	security-guidance	anthropics/claude-plugins-official	claude-plugins-official	Apache-2.0	nada
+seguranca	static-analysis	trailofbits/skills	trailofbits	CC-BY-SA-4.0	CodeQL e Semgrep para os scanners
+seguranca	insecure-defaults	trailofbits/skills	trailofbits	CC-BY-SA-4.0	nada
+seguranca	variant-analysis	trailofbits/skills	trailofbits	CC-BY-SA-4.0	nada
+seguranca	differential-review	trailofbits/skills	trailofbits	CC-BY-SA-4.0	nada
+seguranca	sharp-edges	trailofbits/skills	trailofbits	CC-BY-SA-4.0	nada
+seguranca	yara-authoring	trailofbits/skills	trailofbits	CC-BY-SA-4.0	nada
+seguranca	building-secure-contracts	trailofbits/skills	trailofbits	CC-BY-SA-4.0	nada
+seguranca	secskills-core	trilwu/secskills	secskills-marketplace	MIT	nada
+seguranca	secskills-defense	trilwu/secskills	secskills-marketplace	MIT	nada
+seguranca	secskills-offense	trilwu/secskills	secskills-marketplace	MIT	só em sistema seu ou com autorização por escrito
+codigo	codex	openai/codex-plugin-cc	openai-codex	Apache-2.0	conta na OpenAI
+apps	paper-desktop	paper-design/agent-plugins	paper	não declarada	app Paper aberto
+apps	warp	warpdotdev/claude-code-warp	claude-code-warp	MIT	terminal Warp
+apps	savvy-progress	johnnyvizz/claude-kit	claude-kit	MIT	nada
+apps	session-band	johnnyvizz/claude-kit	claude-kit	MIT	nada

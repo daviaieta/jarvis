@@ -66,7 +66,7 @@ O `Sistema/Progresso.md` (criado na Fase 1) é a sua memória entre sessões. **
 5. **Uma nota-índice em cada pilar** (`tipo: indice`): o que é o pilar, o que está em andamento, `[FALTA]` e links.
 6. **Templates** em `Sistema/Templates/`: Pilar, Pessoa, Conteúdo (campos `plataforma`, `formato`, `status: ideia|roteiro|gravado|editado|publicado`, `data_publicacao`, `arquivo`, `meta`) e Diário (seções: Foco do dia · Anotações · Com o Jarvis · Ideias de conteúdo). Crie o diário de hoje.
 7. **A skill `edicao-video-curto`:** crie `.claude/skills/edicao-video-curto/SKILL.md` com o Apêndice D, e `Sistema/Regras de Edição.md` vazio, com o cabeçalho e uma linha explicando como a regra é escrita.
-8. **`Sistema/Progresso.md`** com esta lista, marcando cada item ao concluir: Fase 0 · Fase 1 · instalar agentes · instalar plugins · instalar skills avulsas · reinício · entrevista (Eu, um bloco por pilar, redes) · voz · pauta de 5 posts.
+8. **`Sistema/Progresso.md`** com esta lista, marcando cada item ao concluir: Fase 0 · Fase 1 · instalar agentes · instalar plugins · instalar skills avulsas · pacote completo · reinício · entrevista (Eu, um bloco por pilar, redes) · voz · pauta de 5 posts.
 
 ## Fase 2 · Instalar a equipe e as skills (um único reinício)
 
@@ -101,6 +101,15 @@ Antes do `watch`, rode `command -v ffmpeg yt-dlp`. Se faltar algum, diga, peça 
 | `https://github.com/vercel-labs/skills` (MIT) | `skills/find-skills` |
 
 Ao final, confira que existe `~/.claude/skills/<nome>/SKILL.md` para cada uma (são 16) e mostre a contagem. Elas só funcionam com conta própria (Higgsfield, Replicate): ver as travas no Apêndice B.
+
+**O pacote completo do Davi** (as skills e os plugins que ele usa: design e interface, código, o método de edição de vídeo dele e plugins oficiais do Claude; a lista e as licenças estão em `pacote/README.md` do repositório). Entra no **mesmo ok** do bloco; se ela disser "sem o pacote", pule. Avise em uma linha que ele deixa cada conversa mais pesada (a descrição de cada skill entra no contexto) e que dá para instalar só um grupo depois. **O grupo de segurança não entra por padrão:** ele traz listas de ataque (payloads, senhas, webshells) que o antivírus pode pôr em quarentena; só ofereça se ela trabalha com segurança, com um ok à parte, e então rode o mesmo comando com `--grupo seguranca`.
+
+Cada chamada do Bash começa num terminal novo, então rode tudo **num comando só**, com tempo limite de 10 minutos (600000 ms) ou em segundo plano: primeiro a simulação, mostre a contagem e, se estiver tudo certo, a instalação.
+
+1. Simulação: `T="$(mktemp -d)" && git clone -q --depth 1 https://github.com/daviaieta/jarvis.git "$T/jarvis" && bash "$T/jarvis/pacote/instalar.sh" --dry-run; rm -rf "$T"`
+2. Antes de instalar, diga em 3 linhas o que o `instalar.sh` faz: baixa cada skill do repositório original, num commit fixo, para `~/.claude/skills/` sem sobrescrever nada; instala os plugins com `claude plugin`; não usa `sudo` nem pede senha. Se ela quiser ler, mostre o arquivo.
+3. Instalação: `T="$(mktemp -d)" && git clone -q --depth 1 https://github.com/daviaieta/jarvis.git "$T/jarvis" && bash "$T/jarvis/pacote/instalar.sh"; rm -rf "$T"`
+4. Mostre o resumo que ele imprime (skills novas, já existiam, plugins e o que falhou).
 
 **O reinício (um só):** marque no `Progresso.md` o que foi instalado e diga: "Feche o Claude Code, abra de novo **nesta pasta** e digite: **continue a instalação**." Os agentes e as skills só aparecem em conversa nova. O `CLAUDE.md` e o `Progresso.md` dizem onde você parou.
 
@@ -263,6 +272,7 @@ Grave em `Sistema/Skills.md`. As skills disparam sozinhas pelo pedido em linguag
 | 8 skills `higgsfield-*` | foto de produto, cartão de venda, marca, capa de YouTube, rosto; **gasta crédito** |
 | 7 skills do Replicate (`run-models`, `find-models` e outras) | rodar e comparar modelos de IA; pede chave de API dela |
 | `find-skills` | achar uma skill nova quando ela precisar de algo |
+| pacote completo (51 skills e 11 plugins; segurança à parte) | design e interface, código e `edicao-video`, o método de edição do Davi; lista em `pacote/README.md` do repositório do Jarvis |
 | `edicao-video-curto` (própria, Apêndice D) | planejar a edição de um vídeo curto antes de editar no celular ou no CapCut |
 
 **As nove `ig-*`:**
@@ -324,7 +334,7 @@ Conteúdo do `.claude/skills/edicao-video-curto/SKILL.md`. É o método de ediç
 ~~~
 ---
 name: edicao-video-curto
-description: Planeja a edição de um vídeo curto (corte, gancho, legenda, texto na tela, áudio e conferência) antes de a pessoa editar no CapCut ou no celular. Use sempre que o pedido for editar, cortar, legendar ou revisar um vídeo curto.
+description: Planeja a edição de um vídeo curto (corte, gancho, legenda, texto na tela, áudio e conferência) antes de a pessoa editar no CapCut ou no celular. Use quando a pessoa for editar ela mesma, no CapCut ou no celular, e quiser o plano. Se ela quiser que o Claude edite no computador e a skill edicao-video estiver instalada, use aquela.
 ---
 
 # Edição de vídeo curto

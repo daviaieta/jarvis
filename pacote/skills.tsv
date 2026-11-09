@@ -1,0 +1,63 @@
+# grupo	nome	repositorio	pasta_no_repositorio	licenca	commit
+codigo	agent-browser	vercel-labs/agent-browser	skills/agent-browser	Apache-2.0	e7519957b9067c541825afa21a792fbe1f483047
+codigo	api-design-principles	wshobson/agents	plugins/backend-development/skills/api-design-principles	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	auth-implementation-patterns	wshobson/agents	plugins/developer-essentials/skills/auth-implementation-patterns	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	modern-javascript-patterns	wshobson/agents	plugins/javascript-typescript/skills/modern-javascript-patterns	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	nextjs-app-router-patterns	wshobson/agents	plugins/frontend-mobile-development/skills/nextjs-app-router-patterns	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	openapi-spec-generation	wshobson/agents	plugins/documentation-generation/skills/openapi-spec-generation	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	react-native-architecture	wshobson/agents	plugins/frontend-mobile-development/skills/react-native-architecture	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	react-state-management	wshobson/agents	plugins/frontend-mobile-development/skills/react-state-management	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+codigo	remotion-best-practices	remotion-dev/skills	skills/remotion-best-practices	não declarada	1af7e69a2a613437d46095924057970a6a7df40d
+codigo	reverse-engineer-anything	morluto/rea	.agents/skills/reverse-engineer-anything	MIT	c52a9b9d79021d4799c478d73a3fd3ed795b2318
+codigo	write-swift	emilkowalski/skills	skills/write-swift	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	accessibility-compliance	wshobson/agents	plugins/ui-design/skills/accessibility-compliance	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+design	animate	emilkowalski/skills	skills/animate	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	animate-expo	emilkowalski/skills	skills/animate-expo	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	animation-vocabulary	emilkowalski/skills	skills/animation-vocabulary	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	apple-design	emilkowalski/skills	skills/apple-design	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	appllama-app-design-skill	Appllama/appllama-skills	skills/appllama-app-design-skill	MIT	dd5caaec3d5d50ad7fc0324da238119c6b7c3707
+design	ask-sonner	emilkowalski/skills	skills/ask-sonner	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	break-ui	emilkowalski/skills	skills/break-ui	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	canvas-design	anthropics/skills	skills/canvas-design	Apache-2.0	2c5958ecac7cee2b583967a2c4981d0f4a75c579
+design	color-expert	meodai/skill.color-expert	.	CC-BY-4.0	5bf7c7704d56bccc6aeea38c36bcf449abe56a6c
+design	design-critique	anthropics/knowledge-work-plugins	design/skills/design-critique	Apache-2.0	e605d8ddbfb688da57dfaaceebd93f12a64ef1d3
+design	design-system-patterns	wshobson/agents	plugins/ui-design/skills/design-system-patterns	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+design	emil-design-eng	emilkowalski/skills	skills/emil-design-eng	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	find-animation-opportunities	emilkowalski/skills	skills/find-animation-opportunities	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	hallmark	Nutlope/hallmark	skills/hallmark	MIT	407fa689f4a276f2fd389208d271d0fef08f5058
+design	hue	dominikmartn/hue	.	MIT	a910e31cd24b45b9455c0c3502150413aa5a3b32
+design	impeccable	pbakaus/impeccable	.agent/skills/impeccable	Apache-2.0	500eeb7e655d1916c8d0880d05c8a80b5a8a86fb
+design	improve-animations	emilkowalski/skills	skills/improve-animations	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	ip-as-logo-skill	s1dashu/ip-as-logo-skill	.	MIT	6e808f31f30f6a358ccacc85cc145573de3f74a2
+design	kill-ai-slop	yetone/kill-ai-slop	skill	Apache-2.0	f6e2ae32b30443ec7bd0da4da971ee18d8f8ffcb
+design	landing-page-design	elayadesign/ai-design-skills	skills/landing-page-design	MIT	456d9e0d3e2d84c748bb143c6ca3d90c45e16213
+design	logo-generator-skill	op7418/logo-generator-skill	.	não declarada	bf4e9ac4d4428bda261afcfe981871ceb92d94e6
+design	make-interfaces-feel-better	jakubkrehel/make-interfaces-feel-better	skills/make-interfaces-feel-better	MIT	35545ea1512ad59fa463e6b1f95ca9c052981fe6
+design	material-3	hamen/material-3-skill	skills/material-3	MIT	14385f2bf3804d8779f8b4db2604211f1e70b4c1
+design	mobile-native	emilkowalski/skills	skills/mobile-native	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	mono-color-skill	yanliudesign/mono-color-skill	.	MIT	c8ff70597ddedcd65f21a0b528f6a70c35690b0a
+design	niblet	PyModel/niblet-skill-mcp	skill/niblet	Apache-2.0	cf81b1b8ca03af367082fc7e781551bd79c94ad1
+design	pick-ui-library	emilkowalski/skills	skills/pick-ui-library	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	prototype	emilkowalski/skills	skills/prototype	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	refactoring-ui-skill	s0xDk/refactoring-ui-skill	.	não declarada	48872143abb0a8feb6d9bf58e222afbd800210b0
+design	responsive-design	wshobson/agents	plugins/ui-design/skills/responsive-design	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+design	review-animations	emilkowalski/skills	skills/review-animations	MIT	715c1807e08c497cfd1dc4feb450a2a3300ef2a9
+design	tailwind-design-system	wshobson/agents	plugins/frontend-mobile-development/skills/tailwind-design-system	MIT	9c61ab243def98f72da12abd41cfcf5bcd91af9d
+design	taste-skill	Leonxlnx/taste-skill	skills/taste-skill	MIT	f6b76575f949707b4e3c37cd86cb44b0b98643e8
+design	theme-factory	anthropics/skills	skills/theme-factory	Apache-2.0	2c5958ecac7cee2b583967a2c4981d0f4a75c579
+design	ui-design-brain	carmahhawwari/ui-design-brain	.	não declarada	38f04c5a1dee55d99c686a16643cef4e2ce0f7a2
+design	ui-ux-pro-max	nextlevelbuilder/ui-ux-pro-max-skill	.claude/skills/ui-ux-pro-max	MIT	4f2dbb67e64969a9a30ab00742f2d55d66ddec2b
+design	web-design	xiaopu-ai/web-design	.	MIT	22a4f482cc4caa2394391c0c31ff0aefd1908774
+design	web-design-guidelines	vercel-labs/agent-skills	skills/web-design-guidelines	não declarada	1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62
+seguranca	llm-testing	Eyadkelleh/awesome-skills-security	skills/llm-testing	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	owasp-security	agamm/claude-code-owasp	.claude/skills/owasp-security	MIT	1ae29cb22518560e3625d77f2ae64f61647d9201
+seguranca	security-audit	cloudflare/security-audit-skill	skills/security-audit	MIT	c1c8a8c1471069fb0e188eeaff69b8e8db6564a8
+seguranca	security-auditor	dralgorhythm/claude-agentic-framework	.claude/skills/security-auditor	não declarada	6436a20fadad6de8e48aebfb6821d7269341c057
+seguranca	security-fuzzing	Eyadkelleh/awesome-skills-security	skills/security-fuzzing	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	security-passwords	Eyadkelleh/awesome-skills-security	skills/security-passwords	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	security-patterns	Eyadkelleh/awesome-skills-security	skills/security-patterns	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	security-payloads	Eyadkelleh/awesome-skills-security	skills/security-payloads	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	security-usernames	Eyadkelleh/awesome-skills-security	skills/security-usernames	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	security-webshells	Eyadkelleh/awesome-skills-security	skills/security-webshells	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
+seguranca	snyk-fix	snyk/studio-recipes	command_directives/synchronous_remediation/skills/snyk-fix	Apache-2.0	3752dd05a462184dcce44af3c247f287b41e35de
+seguranca	threat-modeling	dralgorhythm/claude-agentic-framework	.claude/skills/security/threat-modeling	não declarada	6436a20fadad6de8e48aebfb6821d7269341c057

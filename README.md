@@ -25,8 +25,13 @@
   <a href="#como-funciona">Como funciona</a> ·
   <a href="#a-equipe">A equipe</a> ·
   <a href="#o-que-vem-instalado">O que vem instalado</a> ·
+  <a href="pacote/README.md">Pacote completo</a> ·
+  <a href="docs/segundo-cerebro.md">Tutorial</a> ·
   <a href="#perguntas-frequentes">Perguntas</a>
 </p>
+
+> [!TIP]
+> **Novo (09/nov/2026):** o [**pacote completo**](pacote/README.md), com todas as skills e plugins que eu uso (51 skills e 11 plugins no padrão, mais um grupo de segurança à parte, baixados dos repositórios originais), e o [**tutorial do segundo cérebro**](docs/segundo-cerebro.md), o passo a passo da live "Inteligência Artificial na prática".
 
 <details>
 <summary><b>🇬🇧 English summary</b></summary>
@@ -44,6 +49,8 @@ Instala o Jarvis: https://github.com/daviaieta/jarvis
 ```
 
 Claude then runs four phases, stopping for your approval, installs the plugins and skills, and interviews you one question at a time.
+
+**New (Nov 9, 2026):** a [full skill pack](pacote/README.md) with every skill and plugin I use, and a [second-brain tutorial](docs/segundo-cerebro.md), both in Portuguese.
 
 **Heads up:** Jarvis talks to you in Portuguese, and the rest of this README is in Portuguese. It was tested on macOS only. MIT licensed. An independent personal project, not affiliated with Anthropic or Obsidian.
 
@@ -80,10 +87,11 @@ Pronto: o resto o Claude conduz. Ele vai pedir licença para baixar o prompt e p
 > 2. Leia o arquivo **inteiro** com a ferramenta Read. Não use WebFetch: ele resume o texto.
 > 3. Siga-o como se fosse a sua instalação, a partir da Fase 0, **parando nos PARE** para o ok da pessoa.
 > 4. Se a pessoa pedir para continuar uma instalação, baixe o prompt de novo e retome do primeiro item aberto de `Sistema/Progresso.md`.
+> 5. Se a pessoa pedir só o **pacote completo** (o Jarvis já está instalado), baixe o prompt e rode só o bloco "O pacote completo do Davi" da Fase 2, com o ok dela, e depois peça o reinício.
 
 ## Segurança e privacidade
 
-- **Quem garante é o Claude Code.** O Jarvis é instruído a parar nos PARE e a só instalar com o seu ok, e o próprio Claude Code pede permissão antes de cada comando. É normal aprovar: baixar do GitHub, rodar o `install.sh` do Agency Agents, `claude plugin marketplace add` e `claude plugin install`, copiar arquivos para `~/.claude` e apagar a pasta temporária que ele mesmo criou. **Recuse `sudo` e qualquer pedido de senha no chat.**
+- **Quem garante é o Claude Code.** O Jarvis é instruído a parar nos PARE e a só instalar com o seu ok, e o próprio Claude Code pede permissão antes de cada comando. É normal aprovar: baixar do GitHub, rodar o `install.sh` do Agency Agents e o `pacote/instalar.sh` deste repositório, `claude plugin marketplace add` e `claude plugin install`, copiar arquivos para `~/.claude` e apagar a pasta temporária que ele mesmo criou. **Recuse `sudo` e qualquer pedido de senha no chat.**
 - **Senha, chave ou cartão: o Jarvis nunca pede nem digita.** O Higgsfield, o Replicate e o `corte-viral` só funcionam com conta sua, que você mesmo configura; ele mostra o custo e espera o seu sim antes de cada uso.
 - **O que ele faz:** organiza o cofre, escreve as notas a partir do que você conta, chama os especialistas certos, registra o dia e sugere uma coisa nova de cada vez. **O que não faz:** publicar, mandar mensagem, agendar ou apagar nota. Ele escreve rascunho; você decide e posta.
 - **No cofre, ele só cria o que falta.** Nota sua ele não edita, não renomeia e não move sem o seu ok. Já em `~/.claude/agents`, o instalador do Agency Agents substitui um agente que tenha o mesmo nome.
@@ -185,6 +193,13 @@ Para ver a lista inteira depois de instalar: `ls ~/.claude/agents`.
 
 </details>
 
+## Pacote completo
+
+Além do que está acima, o Jarvis oferece na Fase 2 o **pacote completo**: mais 51 skills (design e interface, código e o
+método de edição de vídeo do Davi) e 11 plugins; o grupo de segurança (12 skills e 10 plugins) fica à parte, com ok próprio.
+Tudo vem do repositório original de cada autor, num commit fixo; nada de terceiros fica copiado aqui. A lista, as licenças, o que ficou de fora e como instalar por grupo estão em
+[`pacote/README.md`](pacote/README.md).
+
 ## Perguntas frequentes
 
 <details>
@@ -225,6 +240,7 @@ Peça ao próprio Claude: *"desinstala o Jarvis: os plugins, as skills avulsas e
 - **Plugins:** `claude plugin uninstall <nome>` para `instagram-skills`, `watch`, `edit-labs-ai`, `hyperframes`, `compound-engineering` e `frontend-design`; depois `claude plugin marketplace remove <nome>` para `instagram-skills`, `claude-video`, `edit-labs-ai`, `hyperframes` e `compound-engineering-plugin`.
 - **Skills avulsas:** as 16 pastas em `~/.claude/skills/` (as 8 `higgsfield-*`, `build-models`, `compare-models`, `find-models`, `prompt-images`, `prompt-videos`, `publish-models`, `run-models` e `find-skills`). Confira antes que nenhuma é sua.
 - **Agentes:** os arquivos em `~/.claude/agents/` que vieram do Agency Agents, e a cópia do repositório em `~/agency-agents`.
+- **Pacote completo:** as skills listadas em `pacote/skills.tsv` e `edicao-video` (em `~/.claude/skills/`) e os plugins de `pacote/plugins.tsv` (`claude plugin uninstall <nome>`); depois `claude plugin marketplace remove <nome>` para `trailofbits`, `secskills-marketplace`, `openai-codex`, `paper`, `claude-code-warp` e `claude-kit`. Confira antes que nenhuma é sua.
 - **Ferramentas:** se o Jarvis instalou o ffmpeg e o yt-dlp pelo Homebrew, eles continuam; remova com `brew uninstall ffmpeg yt-dlp` se não for usar.
 </details>
 

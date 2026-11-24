@@ -61,3 +61,5 @@ seguranca	security-usernames	Eyadkelleh/awesome-skills-security	skills/security-
 seguranca	security-webshells	Eyadkelleh/awesome-skills-security	skills/security-webshells	não declarada	ae26985eb60c2b9e1f1b95f7af0e5c438ff85e6d
 seguranca	snyk-fix	snyk/studio-recipes	command_directives/synchronous_remediation/skills/snyk-fix	Apache-2.0	3752dd05a462184dcce44af3c247f287b41e35de
 seguranca	threat-modeling	dralgorhythm/claude-agentic-framework	.claude/skills/security/threat-modeling	não declarada	6436a20fadad6de8e48aebfb6821d7269341c057
+video	earshot	Leonxlnx/earshot	skills/earshot	MIT	4ac3d2ac2b151e1c23376f9ce7f3047a17050013
+video	real-sound	Leonxlnx/earshot	skills/real-sound	MIT	4ac3d2ac2b151e1c23376f9ce7f3047a17050013

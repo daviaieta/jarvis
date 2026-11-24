@@ -1,6 +1,6 @@
 ---
 name: edicao-video
-description: Método de edição de vídeo curto do Davi Aieta, em que o próprio Claude edita no Mac (ffmpeg, whisper e HyperFrames); veio do guia do Luka (@lukachoi_). Use quando a pessoa quiser que o Claude edite, corte, legende, dê motion, ponha efeito ou música, renderize ou revise um vídeo curto (Reels, Shorts, TikTok, corte de vídeo longo) no computador. Se ela edita no celular ou no CapCut e só quer o plano, use a edicao-video-curto. Lê o contexto escrito no cofre (voz, estilo, regras aprendidas), conduz a edição em etapas com o ok da pessoa, transforma cada correção em regra e só então chama as skills de execução (hyperframes, corte-viral, watch).
+description: Método de edição de vídeo curto do Davi Aieta, em que o próprio Claude edita no Mac (ffmpeg, whisper e HyperFrames); veio do guia do Luka (@lukachoi_). Use quando a pessoa quiser que o Claude edite, corte, legende, dê motion, ponha efeito ou música, renderize ou revise um vídeo curto (Reels, Shorts, TikTok, corte de vídeo longo) no computador. Se ela edita no celular ou no CapCut e só quer o plano, use a edicao-video-curto. Lê o contexto escrito no cofre (voz, estilo, regras aprendidas), conduz a edição em etapas com o ok da pessoa, transforma cada correção em regra e só então chama as skills de execução (hyperframes, corte-viral, watch, sfx-kit, earshot, real-sound).
 ---
 
 # Edição de vídeo · o método do Davi, no seu cofre
@@ -65,6 +65,8 @@ cada escolha a ela por seleção.
    confere de novo. `ferramentas/guias.sh` nos momentos com texto ou logo (área segura). Chame o agente
    **Short-Video Editing Coach** com quadros, transcrição e o caminho das notas; para motion pesado, o **Visual
    Storyteller**. O que voltar é insumo: você decide. Música: regras A3 e A4.
+   **Som:** voz com música misturada se separa antes (regra A6); efeito sonoro vem da skill `sfx-kit` (pouco, baixo e
+   variado: regra A8), é medido com a `earshot` antes de dizer que combina, e som gravado de verdade vem da `real-sound`.
 7. **Ok final.** Ela assiste no celular, uma vez sem som e outra com som. Passe a checklist "Pronto para postar"
    (`referencias/metodo.md`). → *ok do final.*
 8. **Fechar.** Nota da peça com status e caminho do arquivo; regras novas salvas; linha no diário, se o cofre tiver.

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Pacote completo do Jarvis: instala as skills e os plugins que o Davi usa, direto dos repositórios originais.
 #
-#   bash pacote/instalar.sh                          # o padrão: design, codigo, claude, apps e minhas
+#   bash pacote/instalar.sh                          # o padrão: design, codigo, video, claude, apps e minhas
+#   bash pacote/instalar.sh --grupo minhas,video     # só edição de vídeo e som
 #   bash pacote/instalar.sh --grupo design,codigo    # só esses grupos
 #   bash pacote/instalar.sh --grupo seguranca        # segurança: só se você trabalha com isso (ver o README do pacote)
 #   bash pacote/instalar.sh --dry-run                # mostra o que faria, sem mexer em nada
@@ -14,8 +15,8 @@ set -euo pipefail
 
 AQUI="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DESTINO="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
-VALIDOS="design,codigo,seguranca,claude,apps,minhas"
-GRUPOS="design,codigo,claude,apps,minhas"
+VALIDOS="design,codigo,video,seguranca,claude,apps,minhas"
+GRUPOS="design,codigo,video,claude,apps,minhas"
 SECO=0
 PLUGINS=1
 export GIT_TERMINAL_PROMPT=0
@@ -30,7 +31,7 @@ while [ $# -gt 0 ]; do
       done ;;
     --dry-run) SECO=1; shift ;;
     --sem-plugins) PLUGINS=0; shift ;;
-    -h|--help) sed -n '2,13p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,14p' "$0"; exit 0 ;;
     *) echo "Opção desconhecida: $1 (use --help)"; exit 1 ;;
   esac
 done
@@ -103,6 +104,14 @@ if quer_grupo minhas; then
     else cp -R "$d" "$DESTINO/$nome"; echo "  + $nome  ←  este repositório (MIT)"; fi
     instaladas=$((instaladas+1))
   done
+fi
+
+# --- 2b. O banco de efeitos sonoros da skill sfx-kit (wyzowl/sfx-kit, CC0) em ~/sfx-kit ------------------------------------
+SFX_COMMIT="92780e7ab0cdfb557497a988089c47f46e8c7412"
+if quer_grupo minhas && existe "$DESTINO/sfx-kit" && [ ! -d "$HOME/sfx-kit" ]; then
+  if [ "$SECO" = 1 ]; then echo "  + banco de sons em ~/sfx-kit  ←  wyzowl/sfx-kit @${SFX_COMMIT:0:8}  (CC0)"
+  elif baixar "wyzowl/sfx-kit" "$SFX_COMMIT" "$HOME/sfx-kit" >/dev/null 2>&1; then echo "  + banco de sons em ~/sfx-kit  ←  wyzowl/sfx-kit  (CC0)"
+  else rm -rf "$HOME/sfx-kit"; falhas="$falhas\n  - banco de sons (wyzowl/sfx-kit): baixe à mão com git clone https://github.com/wyzowl/sfx-kit ~/sfx-kit"; fi
 fi
 
 # --- 3. Plugins (pacote/plugins.tsv) ----------------------------------------------------------------------------------

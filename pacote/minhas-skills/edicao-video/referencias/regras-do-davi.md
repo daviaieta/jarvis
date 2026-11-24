@@ -1,6 +1,6 @@
 # Regras do Davi
 
-O que o Davi aprendeu editando com o Claude entre 14/out e 03/nov/2026: as correções que ele aprovou, com o porquê. Valem
+O que o Davi aprendeu editando com o Claude entre 14/out e 24/nov/2026: as correções que ele aprovou, com o porquê. Valem
 para a pessoa **até ela dizer o contrário**. Quando ela disser, a regra nova entra em `Sistema/Regras de Edição.md` do cofre
 (e ganha desta). O código entre parênteses (R15, R44…) é o número da regra no caderno do Davi, para quem quiser comparar.
 
@@ -9,7 +9,7 @@ Ficaram de fora as regras que valiam só para um vídeo, as que foram substituí
 
 ## Técnica × gosto do Davi
 
-- **Técnica (vale sempre, até a pessoa dizer o contrário):** todas as T, C1 a C3, L, P, A1 e A2, V1. São sobre o vídeo
+- **Técnica (vale sempre, até a pessoa dizer o contrário):** todas as T, C1 a C3, C8 a C12, L, P, A1, A2 e A6 a A8, V1. São sobre o vídeo
   funcionar: cor, sincronia, legenda certa, fala inteira, área segura, número verdadeiro, voz audível.
 - **Gosto do Davi (só sugestão; perde para o Estilo de Edição da pessoa):** marcadas com ✦ nas tabelas. São o jeito que o
   Davi gosta que o vídeo fique: fontes, abertura, chamada, formas dos elementos. Use quando a pessoa ainda não decidiu
@@ -29,6 +29,12 @@ Ficaram de fora as regras que valiam só para um vídeo, as que foram substituí
 | T7 | Antes de congelar o último quadro, olhar os 0,5 s finais. (R16) | O take acaba com a mão indo parar a gravação. |
 | T8 | Versão nova a cada render (`vNN`); render no Terminal com log; pasta de trabalho fora do iCloud. (R7, R8, R9) | Voltar atrás; render rápido; iCloud trava. |
 | T9 | Motion que recua (zoom-out) tem de aguentar o celular: no quadro mais aberto, traço ≥ 3 px, ponto ≥ 8 px, fundo chapado (degradê escuro vira faixa na compressão) e texto de leitura ≥ 30 px. (R53) | Uma pílula de 35 px virava 11 px no recuo: "vira pó". |
+| T10 | Antes de editar, conferir se o arquivo é o **bruto ou já veio cortado**: metadados de exportação do CapCut, som caindo a silêncio digital (abaixo de -70 dB) e saltos de imagem entre quadros vizinhos. (R158) | Editar em cima de um corte já feito duplica cortes e perde qualidade. |
+| T11 | Arquivo exportado do CapCut: procurar o **pulso de cor** (um quadro com ruído lilás e amarelo a cada ~4 s) medindo U e V de cada bloco parado contra os dois quadros vizinhos. (R179, R195) | O desvio geral do quadro não acusa nada; o pulso só aparece no post. |
+| T12 | O arquivo para o Reels sai de **um mestre** de alta qualidade (CRF ~10) e **uma única** codificação de entrega: H.264 High, 1080×1920, 30 qps constante, GOP fechado, yuv420p bt709. (R180) | Cada recodificação perde detalhe, e o Instagram ainda recodifica de novo. |
+| T13 | Áudio de gravador externo entra pela **correlação da onda inteira** com o som da câmera, conferindo a deriva em janelas ao longo do take. (R156) | Alinhado no olho, a boca sai de sincronia no fim do take. |
+| T14 | **O take entra como veio:** sem espelhar, sem mudar o tamanho e sem mexer no tempo, a não ser que a pessoa peça. (R192) | A base é o que a pessoa gravou. |
+| T15 | Edição com muito efeito tem trava: **no máximo 3 flashes por segundo** (glitch, clarão, texto batendo), WCAG 2.3.1; glitch alterna a cada 3 quadros ou mais. (R189) | Acima disso o vídeo pode causar crise fotossensível, e cansa. |
 
 ## C · Corte e fala
 
@@ -41,6 +47,11 @@ Ficaram de fora as regras que valiam só para um vídeo, as que foram substituí
 | C5 | O contexto de quem fala passa rápido: um item por frase, cada um com a sua imagem; sai a frase que resume o que a tela já mostrou; pausa entre itens ≤ 0,15 s. (R49) | "Dá pra cortar e enxugar bastante tempo." |
 | C6 | Antes da frase de impacto, um **respiro de tensão** (1,5 a 2 s) com o gesto real, zoom lento, vinheta leve e uma subida baixa; sem legenda nesse respiro. (R37) | "Esse corte ficou muito rápido… queria gerar uma tensãozinha." |
 | C7 | A palavra da chamada não aparece na fala logo antes dela: a frase acaba antes, respiro de 0,2 s, corte seco para a chamada. (R52) | "Eu falei tanto Obsidian que ficou chato." |
+| C8 | **O corte só fecha quando a palavra acaba:** a borda final anda pela energia até 50 ms de silêncio e a inicial recua até o ataque da palavra. Depois de montar, **retranscrever o A-roll inteiro** e comparar. (R157) | Corte pela transcrição come o fim das palavras. |
+| C9 | **Hesitação no meio da frase sai, mesmo curta** ("com todo o… contexto"); a emenda junta as palavras com 0,02 a 0,05 s de ar. (R190) | Pausa dentro de uma ideia derruba a retenção. |
+| C10 | **Respiro no meio da explicação sai por corte, não por aceleração:** pausa de 0,10 s ou mais perde o miolo, em quadros inteiros, sem tocar na palavra. (R197) | Acelerar muda a voz; cortar o respiro não. |
+| C11 | Erro de fato na fala sai no corte se a emenda fica limpa; se o corte deixaria a fala estranha, ela fica inteira e o fato certo vai para a tela. (R114, R115) | Corte esquisito é pior que o erro, e legenda corrigindo a fala confunde. |
+| C12 | Frase que fecha um exemplo vai inteira. (R131) | Cortar o fim do argumento tira o sentido. |
 
 ## L · Legenda
 
@@ -50,6 +61,7 @@ Ficaram de fora as regras que valiam só para um vídeo, as que foram substituí
 | L2 | Frase em que as transcrições discordam: transcrever **o trecho isolado, sem dica de vocabulário**, e legendar o que ele ouvir. (R24) | Com "Claude" na dica saiu "teu Claude"; sem dica, três vezes "teu cofre". |
 | L3 | A legenda acaba na última palavra falada; conferir os 2 s finais. (R51) | O Whisper inventou um "Legenda por …" depois do fim. |
 | L4 | Nada de texto acima de y 240 nem abaixo de y 1480; medir a área segura **quadro a quadro** nos momentos com texto ou logo, com as guias desenhadas, antes do render final. (R3, R18, R54) | Capa a 5 px da borda, rótulo a 170 px (embaixo do cabeçalho), nome de 54 a 967 px: só a medida achou. |
+| L5 | Legenda **nunca no rosto e nunca duplicada:** quando o texto grande da cena já escreve a fala, a legenda pequena some naquele trecho. (R122, R166) | Duas legendas dizendo a mesma coisa poluem e escondem a cara. |
 
 ## G · Gancho e abertura
 
@@ -89,6 +101,12 @@ Ficaram de fora as regras que valiam só para um vídeo, as que foram substituí
 | E21 | Tela com o cofre de outra pessoa (nomes de nota legíveis) entra com desfoque leve (gblur ≈ 3,5). (R31) | O grafo mostrava títulos de notas e uma reunião na barra do Mac. |
 | E22 | Gravação de app é fluida: **captura** a 60 qps (o vídeo final continua a 30 constante: a captura é convertida), rolagem com curva (sai devagar, corre, chega devagar), um toque a cada 0,6 a 1 s; gravar um print por quadro, nunca lista de imagens com duração. (R56) | "Tá muito travado, tá muito lento." |
 | E23 ✦ | No vertical, fundo limpo: holograma e partículas de fundo só no horizontal. (R20, R21) | No celular o fundo compete com os cartões. |
+| E24 | Ferramenta, app, marca, moeda ou pessoa citada aparece com **a cara real**: interface recriada a partir do print, logo real, foto real. Nunca um ícone ou um terminal genérico. (R117, R129, R132, R140) | O genérico parece banco de imagem; o real prova que é de verdade. |
+| E25 | Nos exemplos, **nenhuma imagem fica parada mais de ~1,2 s**; trecho de demonstração muda alguma coisa a cada passo da fala. (R133, R177) | Tela parada é onde o dedo rola. |
+| E26 | **Nada de trecho acelerado com música por cima:** o processo vira troca de ângulo com fala real (rosto, tela, rosto). (R152) | É onde o público sai. |
+| E27 | Preview de vídeo na tela é **vídeo de verdade rodando**, nunca cartão cinza com ícone de play. (R193) | Cartão parado não mostra nada. |
+| E28 | Peça com preço: **só os números falados entram na tela**; uma diferença é a conta entre dois números falados. O produto (um carro, por exemplo) aparece **na cor e na versão da unidade**, mesmo que a foto seja menos bonita. (R184, R185) | Número que a fala não diz ou foto na cor errada derruba a confiança do cliente. |
+| E29 | Tela dividida: **enquadramento fixo por plano**, câmera baixa, a cabeça logo abaixo da divisa e o corpo aparecendo; nada de faixa de parede vazia. (R196, R202) | Recorte que acompanha a cabeça treme; parede vazia desperdiça metade da tela. |
 
 ## P · Prova e fonte
 
@@ -108,6 +126,9 @@ Ficaram de fora as regras que valiam só para um vídeo, as que foram substituí
 | A3 | Música famosa: o caminho seguro é pelo app do Instagram (biblioteca), escolhendo o trecho. Se o dono quiser **dentro do arquivo**, ele escolhe a faixa, o drop sincroniza com a entrada do título, -14 LUFS, fade de 0,6 s, e o risco (silenciar, bloquear) é dito uma vez, sem insistir. (R85) | Decisão do Davi em 03/nov/2026, depois de testar os dois. |
 | A4 | Música que aparece na tela (mini player, "tocando agora") passa pelo dono: nada de faixa com repercussão ruim no momento. (R81) | Proteger a imagem de quem posta. |
 | A5 ✦ | Efeitos sonoros baixos, uns 8 a 13 num Reel de 90 s, nunca por cima de palavra-chave; sintetizados no projeto ou de biblioteca livre. | Som bom é o que ninguém percebe; muito efeito cansa. |
+| A6 | Voz com música já misturada: **separar antes de mixar** (Demucs, `htdemucs_ft --two-stems=vocals`) e medir trecho a trecho a voz **6 dB ou mais acima** de música + efeitos. (R188) | Sem separar, subir a voz sobe a música junto. |
+| A7 | Loudness no acabamento por **ganho linear, nunca limitador:** alvo -14 LUFS; se o pico não deixar chegar, fica no ganho que leva o pico a -1,5 dBTP. (R187) | O limitador amassa a voz e os ataques. |
+| A8 | **Efeito sonoro: pouco, baixo e variado.** No máximo ~40 por minuto, sempre claramente abaixo da voz, famílias em rodízio, digitação só quando um texto importante é digitado na tela. Banco: skill `sfx-kit`; medir: `earshot`; som gravado de verdade: `real-sound`. (R168, R191, R199, R203) | Efeito demais e alto foi a correção mais repetida do Davi. |
 
 ## F · Final e chamada
 

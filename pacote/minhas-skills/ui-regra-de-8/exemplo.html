@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI regra de 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F7F7; --surface:#FFFFFF; --track:#EBEBEA; --line:#F1F1F1; --tile-line:#E5E5E5;
+  --ink:#111111; --ink-2:#4F4F4F; --ink-3:#737373; --ink-4:#8E8E93;
+  --accent:#F44400; --success:#1FA855; --success-bg:#F3FDF5; --success-line:#DDF0E5;
+  --warning:#C98A00; --warning-bg:#FFF8E6; --warning-line:#F3D78C;
+  --overlay:rgba(0,0,0,.19); --info:#7C5CDB; --info-bg:#F4F0FF; --info-line:#E2D9FB;
+  --r-8:8px; --r-12:12px; --r-16:16px; --r-20:20px; --r-24:24px; --r-32:32px; --r-full:999px;
+  --spring:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#DCDCDA}
+body{font-family:Inter,-apple-system,system-ui,sans-serif;color:var(--ink);font-feature-settings:"tnum","cv11";
+  -webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;gap:48px;justify-content:center;padding:48px 16px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.tap{transition:transform .1s ease, background-color .15s ease}
+.tap:active{transform:scale(.97)}
+
+/* aparelho */
+.phone{width:390px;max-width:100%;height:844px;background:var(--bg);border-radius:48px;position:relative;overflow:hidden;
+  box-shadow:0 0 0 8px #EFEFEE, 0 24px 64px rgba(0,0,0,.12)}
+.scroll{height:100%;overflow-y:auto;padding:0 16px 32px;scrollbar-width:none;transition:transform .38s var(--spring), filter .38s}
+.scroll::-webkit-scrollbar{display:none}
+
+.status{height:56px;display:flex;align-items:center;justify-content:space-between;padding:8px 16px 0;font-size:15px;font-weight:600}
+
+/* cabeçalho */
+.head{display:flex;align-items:flex-start;justify-content:space-between;padding-top:8px;margin-bottom:16px}
+h1{font-size:30px;line-height:36px;font-weight:600;letter-spacing:-.02em}
+.sub{font-size:15px;line-height:20px;color:var(--ink-2);margin-top:4px}
+.icons{display:flex;gap:8px}
+.icon-btn{width:40px;height:40px;border-radius:var(--r-full);background:var(--surface);display:grid;place-items:center;position:relative}
+.icon-btn:active{background:var(--track)}
+.dot{position:absolute;top:9px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px var(--surface)}
+svg{display:block}
+
+/* cartão */
+.card{background:var(--surface);border-radius:var(--r-20);padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.stack>*+*{margin-top:16px}
+.label{font-size:15px;line-height:20px;color:var(--ink-2)}
+.meta{font-size:13px;line-height:16px;color:var(--ink-3)}
+.hero-row{display:flex;min-width:0;justify-content:space-between;align-items:flex-start;gap:8px}
+.hero{font-size:36px;line-height:40px;font-weight:500;letter-spacing:-.03em;margin-top:8px;white-space:nowrap}
+.cents{color:var(--ink-4)}
+.cur{font-size:20px;line-height:20px;color:var(--ink-2);font-weight:500;letter-spacing:0;margin-right:4px;vertical-align:14px}
+.delta{display:inline-flex;white-space:nowrap;align-items:center;height:24px;padding:0 8px;border-radius:var(--r-full);font-size:12px;font-weight:500;
+  color:var(--success);background:var(--success-bg);border:1px solid var(--success-line)}
+.spark{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.divider{height:1px;background:var(--line);margin:16px 0}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr)}
+.metrics>div+div{border-left:1px solid var(--line);padding-left:12px}
+.metrics .label{font-size:13px;line-height:16px;display:flex;align-items:center;gap:4px}
+.metrics b{display:block;white-space:nowrap;font-size:16px;line-height:24px;font-weight:600;margin-top:4px}
+.sw{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+/* atalhos */
+.actions{display:flex;justify-content:space-between;padding:0 8px}
+.action{display:flex;flex-direction:column;align-items:center;gap:8px;width:72px}
+.action .tile{width:56px;height:56px;border-radius:var(--r-16);background:var(--surface);display:grid;place-items:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.action span{font-size:13px;line-height:16px;color:var(--ink)}
+
+/* alerta */
+.collapsible{display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s var(--spring), opacity .3s, margin .4s var(--spring)}
+.collapsible>div{overflow:hidden}
+.collapsible.gone{grid-template-rows:0fr;opacity:0;margin-top:0!important}
+.alert-top{display:flex;gap:12px}
+.ic-tile{width:40px;height:40px;flex:none;border-radius:var(--r-12);border:1px solid var(--tile-line);display:grid;place-items:center;background:var(--surface)}
+.title17{font-size:16px;line-height:24px;font-weight:600}
+.acc{color:var(--accent)}
+.alert-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+.avatars{display:flex;align-items:center}
+.av{width:28px;height:28px;border-radius:50%;border:2px solid var(--surface);display:grid;place-items:center;font-size:13px;font-weight:600;color:#fff;position:relative}
+.avatars .av+.av{margin-left:-8px}
+.pill{height:32px;padding:0 16px;border-radius:var(--r-full);font-size:15px;font-weight:500}
+.pill-dark{background:var(--ink);color:#fff}
+.pill-light{background:var(--surface);display:inline-flex;align-items:center;gap:4px}
+
+/* seção e lista */
+.section{display:flex;align-items:center;justify-content:space-between;margin-top:32px;margin-bottom:12px}
+h2{font-size:18px;line-height:24px;font-weight:600;letter-spacing:-.01em}
+.list{background:var(--surface);border-radius:var(--r-20);overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;min-height:64px;padding:12px 16px;position:relative;width:100%;text-align:left}
+.row+.row::before{content:"";position:absolute;top:0;left:16px;right:16px;height:1px;background:var(--line)}
+.row .grow{flex:1;min-width:0}
+.row .grow p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .grow p.act{white-space:normal;font-weight:400}
+.row .grow p.act b{font-weight:600}
+.sheet .check{width:20px;height:20px}
+.row .name{font-size:16px;line-height:24px;font-weight:500}
+.row .val{font-size:16px;line-height:24px;font-weight:600;text-align:right}
+.badge{display:inline-flex;align-items:center;height:24px;padding:0 8px;border-radius:var(--r-full);font-size:12px;font-weight:500;border:1px solid;margin-top:4px}
+.b-ok{color:var(--success);background:var(--success-bg);border-color:var(--success-line)}
+.b-info{color:var(--info);background:var(--info-bg);border-color:var(--info-line)}
+.b-wait{color:var(--warning);background:var(--warning-bg);border-color:var(--warning-line)}
+
+/* folha inferior */
+.veil{position:absolute;inset:0;background:var(--overlay);opacity:0;pointer-events:none;transition:opacity .38s}
+.phone.sheet-open .veil{opacity:1;pointer-events:auto}
+.sheet{position:absolute;left:8px;right:8px;bottom:8px;background:var(--surface);border-radius:var(--r-32);padding:8px 20px 20px;
+  transform:translateY(calc(100% + 16px));transition:transform .38s var(--spring);box-shadow:0 -8px 32px rgba(0,0,0,.08)}
+.phone.sheet-open .sheet{transform:none}
+.grabber{width:36px;height:4px;border-radius:var(--r-full);background:var(--track);margin:0 auto 16px}
+.sheet-head{display:flex;justify-content:space-between;align-items:flex-start;padding:0 4px}
+.close{width:32px;height:32px;border-radius:50%;background:#F5F5F5;display:grid;place-items:center}
+.sheet .row{padding:12px 0}
+.sheet .row+.row::before{left:0;right:0}
+.sheet h2{font-size:20px;line-height:28px}
+.check{position:absolute;right:-4px;bottom:-4px;width:20px;height:20px;border-radius:50%;background:var(--success);border:2px solid var(--surface);
+  display:grid;place-items:center;transform:scale(0);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.sent .check{transform:scale(1)}
+.primary{width:100%;height:52px;border-radius:var(--r-full);background:var(--ink);color:#fff;font-size:16px;font-weight:500;margin-top:16px;
+  display:flex;align-items:center;justify-content:center;gap:8px;transition:background-color .3s, transform .1s}
+.primary:active{transform:scale(.97)}
+.primary.ok{background:var(--success)}
+.help{font-size:12px;line-height:16px;color:var(--ink-3);text-align:center;margin-top:12px}
+.spin{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;animation:r .6s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+
+/* tela 2: relatórios */
+.search-row{display:flex;gap:8px;margin-bottom:16px}
+.search{flex:1;height:48px;border-radius:var(--r-full);background:var(--surface);display:flex;align-items:center;gap:8px;padding:0 8px 0 16px;font-size:15px}
+.token{height:32px;display:inline-flex;align-items:center;padding:0 12px;border-radius:var(--r-full);background:var(--track);font-weight:500;white-space:nowrap}
+.caret{width:2px;height:20px;background:var(--accent);margin-left:-6px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.filter-btn{width:48px;height:48px;border-radius:50%;background:var(--surface);display:grid;place-items:center;position:relative}
+.count{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:var(--r-full);background:var(--accent);color:#fff;font-size:12px;font-weight:600;display:grid;place-items:center;border:2px solid var(--bg)}
+.seg{position:relative;display:grid;grid-template-columns:repeat(4,1fr);height:40px;padding:4px;border-radius:var(--r-full);background:var(--track);margin-bottom:16px}
+.seg .knob{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 8px)/4);border-radius:var(--r-full);background:var(--surface);
+  box-shadow:0 1px 2px rgba(0,0,0,.06);transition:transform .32s var(--spring)}
+.seg button{position:relative;font-size:15px;color:var(--ink-2);transition:color .2s}
+.seg button.on{color:var(--ink);font-weight:500}
+.chips{display:flex;gap:8px;align-items:center;margin-bottom:24px}
+.chip{height:40px;min-width:0;overflow:hidden;border-radius:var(--r-full);background:var(--surface);display:inline-flex;align-items:center;gap:4px;padding:0 8px 0 16px;font-size:13px;color:var(--ink-2);white-space:nowrap}
+.chip b{color:var(--ink);font-weight:500}
+.chip .x{width:24px;height:24px;border-radius:50%;background:var(--track);display:grid;place-items:center;margin-left:4px}
+.add{width:40px;height:40px;border-radius:50%;border:1px dashed #C9C9C7;display:grid;place-items:center;flex:none}
+.result{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:15px;color:var(--ink-2)}
+.result b{color:var(--ink);font-weight:600}
+.result button{color:var(--accent);font-weight:500}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.15s!important;animation:none!important}.tap:active,.primary:active{transform:none}}
+</style>
+</head>
+<body>
+
+<!-- TELA 1: VISÃO GERAL -->
+<div class="phone" id="p1">
+  <div class="scroll">
+    <div class="status"><span>9:41</span><span>●●● ▮</span></div>
+    <div class="head">
+      <div><h1>Visão geral</h1><p class="sub">Segunda, 2 de nov</p></div>
+      <div class="icons">
+        <button class="icon-btn tap" aria-label="Notificações"><svg width="20" height="20" viewBox="0 0 24 24" fill="#6B6B6B"><path d="M12 22a2.5 2.5 0 0 0 2.4-2h-4.8a2.5 2.5 0 0 0 2.4 2Zm7-6V11a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg><i class="dot"></i></button>
+        <button class="icon-btn tap" aria-label="Novo"><svg width="20" height="20" viewBox="0 0 24 24" stroke="#111" stroke-width="1.75" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="card" style="padding:20px 16px">
+        <div class="hero-row">
+          <div><p class="label">Receita líquida · Novembro</p>
+            <p class="hero"><span class="cur">R$</span>86.420<span class="cents">,18</span></p></div>
+          <div class="spark">
+            <svg width="80" height="32" viewBox="0 0 104 40" preserveAspectRatio="none"><defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E8590C" stop-opacity=".12"/><stop offset="1" stop-color="#E8590C" stop-opacity="0"/></linearGradient></defs>
+              <path d="M2 30 C10 22 14 34 22 28 S32 20 38 26 S48 16 56 18 S66 22 72 14 S84 22 90 12 S98 8 100 6 V40 H2Z" fill="url(#g)"/>
+              <path d="M2 30 C10 22 14 34 22 28 S32 20 38 26 S48 16 56 18 S66 22 72 14 S84 22 90 12 S98 8 100 6" fill="none" stroke="#E8590C" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="100" cy="6" r="3.5" fill="#fff" stroke="#E8590C" stroke-width="2"/></svg>
+            <span class="delta">+12,4% vs out</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="metrics">
+          <div><p class="label"><i class="sw" style="background:var(--ink)"></i>Faturado</p><b>112,4 mil</b></div>
+          <div><p class="label"><i class="sw" style="background:var(--success)"></i>Recebido</p><b>86,4 mil</b></div>
+          <div><p class="label"><i class="sw" style="background:var(--accent)"></i>Em aberto</p><b>26,0 mil</b></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="action tap"><span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" stroke="#111" stroke-width="1.75" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span>Nova fatura</span></button>
+        <button class="action tap"><span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" stroke="#111" stroke-width="1.75" stroke-linecap="round" fill="none"><path d="M7 17 17 7M9 7h8v8"/></svg></span><span>Relatório</span></button>
+        <button class="action tap"><span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" fill="#111"><path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v1h-4a4 4 0 0 0 0 8h4v1a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Zm12 3h5v4h-5a2 2 0 1 1 0-4Z"/></svg></span><span>Cobrar</span></button>
+        <button class="action tap"><span class="tile"><svg width="24" height="24" viewBox="0 0 24 24" stroke="#111" stroke-width="1.75" stroke-linecap="round" fill="none"><path d="M12 4v11m-4-4 4 4 4-4M5 19h14"/></svg></span><span>Exportar</span></button>
+      </div>
+
+      <div class="collapsible" id="alert"><div>
+        <div class="card">
+          <div class="alert-top">
+            <span class="ic-tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="#6B6B6B"><path d="M5 21V4h11l-1 4 3 4H7v9z"/></svg></span>
+            <div><p class="title17">3 faturas atrasadas</p><p class="label"><span class="acc">R$ 4.812</span> em aberto · a mais antiga há 12 dias</p></div>
+          </div>
+          <div class="alert-bottom">
+            <div class="avatars"><span class="av" style="background:#2B2B2B">K</span><span class="av" style="background:#E5E5E3;color:#111">M</span><span class="av" style="background:var(--accent)">N</span><span class="meta" style="margin-left:8px">3 clientes</span></div>
+            <button class="pill pill-dark tap" id="review">Revisar</button>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="section"><h2>Atividade do time</h2><button class="pill pill-light tap">Ver tudo <svg width="12" height="12" viewBox="0 0 24 24" fill="#111"><path d="M8 5v14l11-7z"/></svg></button></div>
+    <div class="list">
+      <button class="row tap"><span class="av" style="width:36px;height:36px;background:var(--accent)">A</span><div class="grow"><p class="name act"><b>Aylin</b> aprovou a cobrança do rebranding</p><p class="meta">2 min</p></div><span class="badge b-ok">Aprovado</span></button>
+      <button class="row tap"><span class="av" style="width:36px;height:36px;background:#111">J</span><div class="grow"><p class="name act"><b>Jonas</b> enviou o resumo da receita do 3º tri</p><p class="meta">1 h</p></div><span class="badge b-info">Enviado</span></button>
+      <button class="row tap"><span class="av" style="width:36px;height:36px;background:#E5E5E3;color:#111">L</span><div class="grow"><p class="name act"><b>Lia</b> marcou a fatura da Mono Labs como paga</p><p class="meta">ontem</p></div><span class="badge b-ok">Pago</span></button>
+    </div>
+  </div>
+
+  <div class="veil" id="veil"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-label="Faturas atrasadas">
+    <div class="grabber"></div>
+    <div class="sheet-head">
+      <div><h2>Faturas atrasadas</h2><p class="label"><span class="acc">R$ 4.812</span> em 3 clientes</p></div>
+      <button class="close tap" id="close" aria-label="Fechar"><svg width="14" height="14" viewBox="0 0 24 24" stroke="#111" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div id="debtors" style="margin-top:8px">
+      <div class="row"><span class="av" style="width:36px;height:36px;background:#2B2B2B">K<i class="check"><svg width="10" height="10" viewBox="0 0 24 24" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></i></span><div class="grow"><p class="name">Kite Health</p><p class="meta">#1042 · <span class="acc">12 dias de atraso</span></p></div><span class="val">R$ 2.140</span></div>
+      <div class="row"><span class="av" style="width:36px;height:36px;background:#E5E5E3;color:#111">M<i class="check"><svg width="10" height="10" viewBox="0 0 24 24" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></i></span><div class="grow"><p class="name">Mono Labs</p><p class="meta">#1047 · <span class="acc">8 dias de atraso</span></p></div><span class="val">R$ 1.872</span></div>
+      <div class="row"><span class="av" style="width:36px;height:36px;background:var(--accent)">N<i class="check"><svg width="10" height="10" viewBox="0 0 24 24" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg></i></span><div class="grow"><p class="name">Northwind Labs</p><p class="meta">#1051 · <span class="acc">3 dias de atraso</span></p></div><span class="val">R$ 800</span></div>
+    </div>
+    <button class="primary" id="send">Enviar 3 lembretes</button>
+    <p class="help">Cada cliente recebe um e-mail educado com o link de pagamento.</p>
+  </div>
+</div>
+
+<!-- TELA 2: RELATÓRIOS -->
+<div class="phone" id="p2">
+  <div class="scroll">
+    <div class="status"><span>9:41</span><span>●●● ▮</span></div>
+    <div class="head">
+      <div><h1>Relatórios</h1><p class="sub">248 relatórios · 12 clientes</p></div>
+      <div class="icons"><button class="icon-btn tap" aria-label="Notificações"><svg width="20" height="20" viewBox="0 0 24 24" fill="#6B6B6B"><path d="M12 22a2.5 2.5 0 0 0 2.4-2h-4.8a2.5 2.5 0 0 0 2.4 2Zm7-6V11a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1l-2-2Z"/></svg><i class="dot"></i></button></div>
+    </div>
+    <div class="search-row">
+      <div class="search"><svg width="20" height="20" viewBox="0 0 24 24" stroke="#6B6B6B" stroke-width="1.75" fill="none" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4-4"/></svg><span class="token">valor: &gt;1000</span><span>repasses</span><i class="caret"></i></div>
+      <button class="filter-btn tap" aria-label="Filtros"><svg width="20" height="20" viewBox="0 0 24 24" fill="#6B6B6B"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span class="count">3</span></button>
+    </div>
+    <div class="seg" id="seg"><i class="knob"></i><button class="on">Todos</button><button>Pagos</button><button>Pendentes</button><button>Atrasados</button></div>
+    <div class="chips"><span class="chip">Status <span>é um de</span> <b>Pago, Pendente</b><button class="x tap" aria-label="Remover filtro"><svg width="10" height="10" viewBox="0 0 24 24" stroke="#111" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span><button class="add tap" aria-label="Adicionar filtro"><svg width="16" height="16" viewBox="0 0 24 24" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button></div>
+    <div class="result"><span><b id="cnt">52</b> de 248 relatórios</span><button class="tap">Limpar tudo</button></div>
+    <div class="list" id="rep"></div>
+  </div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const p1=$('#p1'), send=$('#send');
+const open=()=>p1.classList.add('sheet-open'), close=()=>p1.classList.remove('sheet-open');
+$('#review').onclick=open; $('#close').onclick=close; $('#veil').onclick=close;
+send.onclick=()=>{
+  if(send.dataset.state) return;
+  send.dataset.state='busy'; send.innerHTML='<i class="spin"></i>';
+  setTimeout(()=>{
+    send.classList.add('ok');
+    send.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg>Lembretes enviados';
+    document.querySelectorAll('#debtors .check').forEach((c,i)=>setTimeout(()=>c.parentElement.parentElement.classList.add('sent'),i*60));
+    setTimeout(()=>{close(); setTimeout(()=>$('#alert').classList.add('gone'),250);},900);
+  },500);
+};
+// tela 2: segmento que desliza + lista que muda
+const data={
+  Todos:[['Folha de outubro','Northwind RH · 30 out','R$ 112.400',',00','b-wait','Pendente'],['Fornecedores','Mono Labs · 26 out','R$ 9.305',',75','b-ok','Pago'],['Rebranding','Fieldwork Studio · 24 out','R$ 22.500',',00','b-wait','Pendente']],
+  Pagos:[['Fornecedores','Mono Labs · 26 out','R$ 9.305',',75','b-ok','Pago'],['Licenças','Kite Health · 19 out','R$ 4.200',',00','b-ok','Pago']],
+  Pendentes:[['Folha de outubro','Northwind RH · 30 out','R$ 112.400',',00','b-wait','Pendente'],['Rebranding','Fieldwork Studio · 24 out','R$ 22.500',',00','b-wait','Pendente']],
+  Atrasados:[['Fatura #1042','Kite Health · 12 dias','R$ 2.140',',00','b-wait','Atrasado']]
+};
+const counts={Todos:52,Pagos:31,Pendentes:17,Atrasados:4};
+const icons=['<path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM2 19c0-3 3-5 6-5s6 2 6 5Zm14-5c2.5 0 6 1.4 6 4v1h-6Z"/>','<path d="M5 4h14v16H5zM8 8h2v2H8zm4 0h4v2h-4zm-4 5h2v2H8zm4 0h4v2h-4z"/>','<path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/>'];
+function render(k){
+  $('#rep').innerHTML=data[k].map((r,i)=>`<button class="row tap"><span class="ic-tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="#6B6B6B">${icons[i%3]}</svg></span><div class="grow"><p class="name">${r[0]}</p><p class="meta">${r[1].split(' · ')[0]} · <span class="${r[4]=='b-ok'?'':'acc'}">${r[5]}</span></p></div><p class="val">${r[2]}<span class="cents">${r[3]}</span></p></button>`).join('');
+  const el=$('#cnt'), to=counts[k], from=+el.textContent, t0=performance.now();
+  (function step(t){const p=Math.min(1,(t-t0)/400); el.textContent=Math.round(from+(to-from)*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(step);})(t0);
+}
+document.querySelectorAll('#seg button').forEach((b,i)=>b.onclick=()=>{
+  document.querySelectorAll('#seg button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+  $('#seg .knob').style.transform=`translateX(${i*100}%)`; render(b.textContent);
+});
+render('Todos');
+</script>
+</body>
+</html>

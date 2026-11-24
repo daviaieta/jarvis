@@ -26,22 +26,34 @@ T="$(mktemp -d)" && git clone -q --depth 1 https://github.com/daviaieta/jarvis.g
 T="$(mktemp -d)" && git clone -q --depth 1 https://github.com/daviaieta/jarvis.git "$T/jarvis" && bash "$T/jarvis/pacote/instalar.sh"; rm -rf "$T"
 ```
 
-Leva uns 2 minutos. **Nada é sobrescrito:** skill com o mesmo nome que você já tenha fica como está. Depois, feche o Claude
+Leva uns 2 minutos. **Nada é sobrescrito:** skill com o mesmo nome que você já tenha fica como está. Para pegar a versão nova
+de uma skill do Davi (como a `edicao-video` de 24/nov), apague a pasta dela em `~/.claude/skills/` antes de rodar. Depois, feche o Claude
 Code e abra de novo: skill e plugin só aparecem em conversa nova.
 
-**Por grupo:** `--grupo design` (ou `codigo`, `claude`, `apps`, `minhas`, `seguranca`; vários separados por vírgula).
+**Por grupo:** `--grupo design` (ou `codigo`, `video`, `claude`, `apps`, `minhas`, `seguranca`; vários separados por vírgula).
+Só edição de vídeo e som: `--grupo minhas,video`.
 Só as skills, sem plugins: `--sem-plugins`. Ajuda: `--help`.
 
 ## O que vem (o padrão)
 
-**51 skills e 11 plugins**, em cima do que o Jarvis já instala (os 282 agentes, 6 plugins e 16 skills do README). Os plugins
+**56 skills e 11 plugins**, em cima do que o Jarvis já instala (os 282 agentes, 6 plugins e 16 skills do README). Os plugins
 trazem skills próprias: só o da Vercel traz umas 40.
 
-### Do Davi (1 skill)
+### Do Davi (4 skills)
 
 | Skill | O que faz |
 |---|---|
-| `edicao-video` | o método de edição de vídeo curto do Davi, com o Claude editando: contexto antes de ferramenta (perfil, estilo, regras), etapas com o seu ok, cada correção vira regra; vem com as regras e o estilo dele como ponto de partida e 5 ferramentas (preparar o bruto, achar silêncios, nivelar o áudio, guias de área segura, conferir a exportação). **Só Mac**; precisa de `brew install ffmpeg whisper-cpp` e do modelo `large-v3` do Whisper (uns 3 GB, baixado na primeira edição) |
+| `edicao-video` | o método de edição de vídeo curto do Davi, com o Claude editando: contexto antes de ferramenta (perfil, estilo, regras), etapas com o seu ok, cada correção vira regra; vem com as regras e o estilo dele como ponto de partida e 5 ferramentas (preparar o bruto, achar silêncios, nivelar o áudio, guias de área segura, conferir a exportação). **Só Mac**; precisa de `brew install ffmpeg whisper-cpp` e do modelo `large-v3` do Whisper (uns 3 GB, baixado na primeira edição). **Atualizada em 24/nov/2026** com 20 regras novas (corte pela energia, hesitação e respiro, arquivo do CapCut, mestre de entrega, separar voz da música, loudness sem limitador, efeito sonoro pouco e baixo, preço e produto reais na tela) |
+| `sfx-kit` | escolhe e posiciona efeito sonoro de um banco de 320 sons originais CC0 ([wyzowl/sfx-kit](https://github.com/wyzowl/sfx-kit), baixado em `~/sfx-kit` pelo instalador), com as regras do Davi: pouco, baixo, variado e nunca por cima da voz |
+| `openverse` | busca imagem e áudio de licença aberta (CC0, CC BY, domínio público) no [Openverse](https://openverse.org), pela API pública sem chave, conferindo a licença e o crédito |
+| `ui-regra-de-8` | o padrão de interface do Davi para app e painel: grade de 8, escala fixa de raio e de fonte, 90% neutro com um acento só; vem com um `exemplo.html` |
+
+### Vídeo e som (2 skills)
+
+| Skill | O que faz | Repositório |
+|---|---|---|
+| `earshot` | dá "ouvido" ao Claude: descreve, compara e mede sons antes de ele dizer que combinam (escolher efeito, achar o trecho limpo, conferir mixagem). Pede Python e `pip install` do repositório na primeira vez (o Claude faz) | [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) (MIT) |
+| `real-sound` | trilha realista a partir de gravações reais licenciadas, para vídeo feito em código (Remotion, HyperFrames) | [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) (MIT) |
 
 ### Design e interface (39 skills)
 

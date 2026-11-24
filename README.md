@@ -31,7 +31,9 @@
 </p>
 
 > [!TIP]
-> **Novo (09/nov/2026):** o [**pacote completo**](pacote/README.md), com todas as skills e plugins que eu uso (51 skills e 11 plugins no padrão, mais um grupo de segurança à parte, baixados dos repositórios originais), e o [**tutorial do segundo cérebro**](docs/segundo-cerebro.md), o passo a passo da live "Inteligência Artificial na prática".
+> **Novo (24/nov/2026):** edição de vídeo atualizada (20 regras novas) e as skills de som: `sfx-kit` (320 efeitos CC0), `earshot` e `real-sound`. Só vídeo e som: `bash pacote/instalar.sh --grupo minhas,video`.
+>
+> **09/nov/2026:** o [**pacote completo**](pacote/README.md), com todas as skills e plugins que eu uso (51 skills e 11 plugins no padrão, mais um grupo de segurança à parte, baixados dos repositórios originais), e o [**tutorial do segundo cérebro**](docs/segundo-cerebro.md), o passo a passo da live "Inteligência Artificial na prática".
 
 <details>
 <summary><b>🇬🇧 English summary</b></summary>
@@ -195,7 +197,7 @@ Para ver a lista inteira depois de instalar: `ls ~/.claude/agents`.
 
 ## Pacote completo
 
-Além do que está acima, o Jarvis oferece na Fase 2 o **pacote completo**: mais 51 skills (design e interface, código e o
+Além do que está acima, o Jarvis oferece na Fase 2 o **pacote completo**: mais 56 skills (design e interface, código e o
 método de edição de vídeo do Davi) e 11 plugins; o grupo de segurança (12 skills e 10 plugins) fica à parte, com ok próprio.
 Tudo vem do repositório original de cada autor, num commit fixo; nada de terceiros fica copiado aqui. A lista, as licenças, o que ficou de fora e como instalar por grupo estão em
 [`pacote/README.md`](pacote/README.md).
